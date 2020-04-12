@@ -1,18 +1,9 @@
 # Powerglot
-PowerGlot - Hiding &amp; encode payloads with polyglots &amp; steganography
+Powerglot encodes an auto-run powershell script using polyglots. A loader is not needed.
 
-In red-team exercises or offensive tasks, the masking of payloads is usually done by using steganography, especially to avoid 
-network level protections, being one of the most common payloads scripts in powershell. Recent malware and APTs make use of some of 
-these capabilities: APT32, APT37, Ursnif, Powload, LightNeuron/Turla, Platinum APT, Waterbug/Turla, Lokibot, The dukes (operation Ghost), 
-Titanium, etc.
+In red-team exercises or offensive tasks, the masking of payloads is usually done by using steganography, especially to avoid network level protections, being one of the most common payloads scripts in powershell. Recent malware and APTs make use of some of these capabilities: APT32, APT37, Ursnif, Powload, LightNeuron/Turla, Platinum APT, Waterbug/Turla, Lokibot, The dukes (operation Ghost), Titanium, etc.
 
-Powerglot is a multifunctional attack and defense tool based on polyglots. Powerglot allows to mask with steganography a powershell script 
-or shellscript in a digital image. Unlike the usual offensive tools or malware, Powerglot does not need any loader to recover the 
-information hidden with steganography. 
-
-The presence or profiling of this loader can make it easier for the defender to detect the attack directly or indirectly. 
-Powerglot makes use of polyglots to facilitate the auto-recovery of the hidden information that you want to execute, minimizing the noise 
-on the target system.
+Powerglot is a multifunctional attack and defense tool based on polyglots. Powerglot allows to mask a script (powershell, shellscripting, php, ...) in a digital image. Unlike the usual offensive tools or malware, Powerglot does not need any loader to execute the "information hidden", minimizing the noise on the target system.
 
 PowerGlot has a clear utility in offensive tasks but it is also defined as a discovery and blue team tool. To our knowledge, it is the first open-source tool that allows to search for the presence of masked information in polyglots, information that could be useful to achieve persistence in a system or to hide malware
 
