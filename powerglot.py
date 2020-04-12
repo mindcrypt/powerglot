@@ -61,7 +61,7 @@ def menu():
     print("\n====================================================================")
     print("   _____                                      _____   _           _   ")
     print("  |  __ \                                    / ____| | |         | |  ")
-    print("  | |__) |   ___   __      __ s  ___   _ __  | |  __  | |   ___   | |_ ")
+    print("  | |__) |   ___   __      __   ___   _ __  | |  __  | |   ___   | |_ ")
     print("  |  ___/   / _ \  \ \ /\ / /  / _ \ | '__| | | |_ | | |  / _ \  | __|")
     print("  | |      | (_) |  \ V  V /  |  __/ | |    | |__| | | | | (_) | | |_ ")
     print("  |_|       \___/    \_/\_/    \___| |_|     \_____| |_|  \___/   \__|")
@@ -70,19 +70,19 @@ def menu():
     print(" -- --=[ Author: Dr. Alfonso Munoz (@mindcrypt) & Abraham Pasamar]")
     print("====================================================================")
 
-    print("\n Usage: powerglot [-d | -o | -os ] [payload] [image src] [image output]")
+    print("\n Usage: powerglot [-d | -o ] [payload] [image src] [image output]")
 
-    print("\n Powerglot encodes an auto-run powershell script using steganography and polyglots. A loader is not needed.")
+    print("\n Powerglot encodes an auto-run powershell script using polyglots. A loader is not needed.")
     print("\n optional arguments:\n")
-    print("  -o  Offensive mode - Encode a script in a JPEG image using polyglots");
+    print("  -o  Offensive mode - Encode/Hide a script in a file using polyglots");
     print("")
-    print("  -os  Offensive mode - Encode a powershell script in an image using polyglots &steganography");
     print("\n  -d  Defensive mode - Allow to detect and analyze the presence of polyglots in any file in the filesystem (recursive from path)")
     print("")
     print(" examples:\n")
     print("  #powerglot -o script.ps1 cat.jpg catMalicious.jpg")
     print("  #powerglot -o script.sh cat.jpg catMalicious.jpg")
-    print("  #powerglot -os script.sh cat.jpg catMalicious.jpg")
+    print("  #powerglot -o script.php cat.jpg catMalicious.jpg")
+
     print("  #powerglot -d ./")
     print("")
     print("------------------------")
@@ -92,12 +92,9 @@ def main(paramIn):
     if len(sys.argv)<2:
         menu()
     else:
-        if (sys.argv[1] == "-o" or sys.argv[1] == "-os") and len(sys.argv)==5:
+        if (sys.argv[1] == "-o") and len(sys.argv)==5:
                if sys.argv[1] == "-o":
                    encodeScriptPolyglot(sys.argv[2],sys.argv[3],sys.argv[4])
-                   print("o")
-               else:
-                   print("os")
 
         elif sys.argv[1] == "-d" and len(sys.argv)==3:
                print("--= [Detecting polyglots]...")
