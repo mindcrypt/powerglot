@@ -4,7 +4,7 @@ Powerglot encodes several kind of scripts using polyglots, for example, offensiv
 
 In red-team exercises or offensive tasks, masking of payloads is usually done by using steganography, especially to avoid network level protections, being one of the most common payloads scripts developed in powershell. Recent malware and APTs make use of some of these capabilities: APT32, APT37, Ursnif, Powload, LightNeuron/Turla, Platinum APT, Waterbug/Turla, Lokibot, The dukes (operation Ghost), Titanium, etc.
 
-Powerglot is a multifunctional attack and defense tool based on polyglots. Powerglot allows to mask a script (powershell, shellscripting, php, ...) mainly in a digital image, although other file formats are in progress. Unlike the usual offensive tools or malware, Powerglot does not need any loader to execute the "information hidden", minimizing the noise on the target system.
+Powerglot is a multifunctional and multi-platform attack and defense tool based on polyglots. Powerglot allows to mask a script (powershell, shellscripting, php, ...) mainly in a digital image, although other file formats are in progress. Unlike the usual offensive tools or malware, Powerglot does not need any loader to execute the "information hidden", minimizing the noise on the target system.
 
 PowerGlot has a clear utility in offensive tasks but it is also defined as a discovery and blue team tool. To our knowledge, it is the first general and complete open-source tool that allows to search for the presence of masked information with polyglots, information that could be useful to achieve persistence in a system or to hide malware (stego-malware, privilege escalation, lateral movement, reverse shell, etc.)
 
@@ -19,6 +19,28 @@ Features:
 # python3 powerglot
 ```
 # Usage & Parameters
+
+The following lines show some examples of usage from Powerglot
+```
+Example 1 - Hiding a powershell/php/shell script in a JPEG image
+
+# python3 powerglot.py -o meterpreter.ps1 cat.jpg cat-hidden1.jpg
+# python3 powerglot.py -o webshell.php cat.jpg cat-hidden2.jpg
+# python3 powerglot.py -o shell.sh cat.jpg cat-hidden3.jpg
+```
+```
+Example 2 - Hiding a shell script (linenum.sh) for privilege escalation "hidden" in a JPEG image
+
+# python3 powerglot.py -o linenum.sh cat.jpg cat-linenum.jpg
+# file cat-linenum.jpg (It is a valid JPEG file)
+# feh cat-lineum.jpg (The image is properly show in a image viewer)
+
+# We can execute the script in several ways:
+a) cat cat-linenum | bash
+b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
+
+```
+
 
 ```
 # SERVER
