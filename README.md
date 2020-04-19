@@ -13,9 +13,11 @@ Features:
 
 - Powerglot is a complete open-source tool to detect (malicious) polyglots, specially the result of some public tools as Truepolyglot or stegoSploit. We works in several formats: JPEG, PNG, GIF, BMP, ZIP, PDF, MP3, etc.
 
-
 # Installation
-
+```
+# git clone https://github.com/mindcrypt/powerglot
+# python3 powerglot
+```
 # Usage & Parameters
 
 ```
