@@ -48,6 +48,8 @@ echo "fasdfafdafdf=" | base64 .d | bash
 
 
 # Future work. Doing
+- We are working to support different file formats for encoding information in polyglots. Currently, we support several techniques in JPEG and PDF.
+- We are working to incorporate rules for the detection of polyglots in different formats. Currently, the presence of StegoSploit in JPEG files is detected.
 
 # Author & license
 
