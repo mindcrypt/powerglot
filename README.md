@@ -20,7 +20,7 @@ Features:
 ```
 # Usage & Parameters
 
-The following lines show some examples of usage from Powerglot
+Some examples to hide payloads using polyglots with Powerglot
 ```
 # Example 1 - Hiding a powershell/php/shell script in a JPEG image
 
@@ -69,8 +69,9 @@ echo "fasdfafdafdf=" | base64 .d | bash
 
 #python3 powerglot -o script.sh file.pdf file-1.pdf
 ```
-
-
+Some examples to detect polyglots in our filesystem
+```
+```
 
 # Future work. Doing
 - We are working to support different file formats for encoding information in polyglots. Currently, we support several techniques in JPEG and PDF.
