@@ -9,7 +9,7 @@ Powerglot is a multifunctional and multi-platform attack and defense tool based 
 PowerGlot has a clear utility in offensive tasks but it is also defined as a discovery and blue team tool. To our knowledge, it is the first general and complete open-source tool that allows to search for the presence of masked information with polyglots, information that could be useful to achieve persistence in a system or to hide malware (stego-malware, privilege escalation, lateral movement, reverse shell, etc.)
 
 Features:
-- Encode powershell/shell script/php/.. in a polyglot image. It is not necessary a loader to recover/execute the hidden information (payload). PowerGlot works with several formats. Mainly, JPEG format.
+- Encode powershell/shell script/php/.. in a polyglot image. It is not necessary a loader to recover/execute the hidden information (payload). PowerGlot works with several formats. Mainly, JPEG and PDF format. Other formats are in progress.
 
 - Powerglot is a complete open-source tool to detect (malicious) polyglots, specially the result of some public tools as Truepolyglot or stegoSploit. We works in several formats: JPEG, PNG, GIF, BMP, ZIP, PDF, MP3, etc.
 
