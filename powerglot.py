@@ -3,24 +3,37 @@ import numpy
 
 def applyRulesDetection(suspectFile):
         print(".",end="")
+        fileName = suspectFile.lower()
+        if suspectFile.endswith(".jpg") or suspectFile.endswith(".JPG"):
 
-        # Detect stegosploit
-        # Es jpg
-
-        #fin FFD9
-        #print("\n[Suspicious file] -",suspectFile)
-
-        #Cierre de stegosploit */ -->
-
-
+            len = os.stat(suspectFile).st_size
+            fileAnalyzing = open(suspectFile,"rb")
+            fileAnalyzing.seek(len-2,0)
+            data = fileAnalyzing.read()  #2 first byte -> FFd9 255 217
+            if data[0] != 255 or data[1] != 217:  # ADDED INFORMATION
+                print("\n[Suspicious file]-[",suspectFile,"]",end="")
+                #Stegosploit Pattern */ -->
+                fileAnalyzing.seek(len-8,0)
+                data = fileAnalyzing.read()
+                count = 0
+                for i in range(0,8):
+                    if data[i]==42 or data[i]==47 or data[i]==45 or data[i]==62:
+                        count = count + 1
+                    if count == 5: #Easy aproximation
+                        print("[Polyglot Stegosploit][EOF Signature: */ -->]")
+            fileAnalyzing.close()
 
 def detect(path):
-    for i in os.listdir(path):
-        if os.path.isfile(os.path.join(path,i)):
-            print(os.path.join(path,i))
-            applyRulesDetection(os.path.join(path,i))
-        if os.path.isdir(os.path.join(path,i)):
-            detect(os.path.join(path,i))
+        try:
+            for i in os.listdir(path):
+                if os.path.isfile(os.path.join(path,i)):
+                    #print(os.path.join(path,i))
+                    applyRulesDetection(os.path.join(path,i))
+                if os.path.isdir(os.path.join(path,i)):
+                    detect(os.path.join(path,i))
+        except OSError:
+            print("*",end="");
+        
 
 def copyArray(src,dst,start,end,prefix_src,prefix_dst):
     for i in range(start,end):
@@ -101,7 +114,6 @@ def menu():
     print("\n Powerglot encodes scripts (powershell, shell, php, etc.) using polyglots. A loader is not needed.")
     print("\n optional arguments:\n")
     print("  -o  Offensive mode - Encode/Hide a script in a file using polyglots");
-    print("")
     print("\n  -d  Defensive mode - Allow to detect and analyze the presence of polyglots in any file in the filesystem (recursive from path)")
     print("")
     print(" examples:\n")
@@ -132,8 +144,10 @@ def main(paramIn):
 
 
         elif sys.argv[1] == "-d" and len(sys.argv)==3:
-               print("--= [Detecting polyglots]...")
+               print("--= [Detecting polyglots] --=")
                detect(sys.argv[2])
+               print("")
+
         else:
             menu()
 
