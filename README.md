@@ -41,7 +41,7 @@ a) cat cat-linenum | bash
 b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
 ```
 ```
-# Example 3 Polyglot in PDF (linenum.sh)
+# Example 3 - Polyglot in PDF (Ej-linenum.sh)
 # Create b64.sh with your favourite payload
 base64 Linenum.sh -w 0 > b64.sh
 # Edit b64.sh
@@ -60,7 +60,7 @@ Some examples to detect polyglots in our filesystem
 
 # Future work. Doing
 - We are working to support different file formats for encoding information in polyglots. Currently, we support several techniques in JPEG and PDF.
-- We are working to incorporate rules for the detection of polyglots in different formats. Currently, the presence of StegoSploit in JPEG files is detected.
+- We are working to incorporate rules for the detection of polyglots in different formats. Currently, the presence of StegoSploit in JPEG files is detected (added */ --> after FFD9)
 
 # Author & license
 
