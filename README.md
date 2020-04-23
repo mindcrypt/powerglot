@@ -56,6 +56,13 @@ echo "code in b64.sh" | base64 -d | bash;
 ```
 Some examples to detect polyglots in our filesystem
 ```
+#python3 powerglot.py -d ./
+--= [Detecting polyglots] --=
+..............................................................
+[Suspicious file]-[ ./cat-end-extra2.jpg ]..
+[Suspicious file]-[ ./cat-end-extra3.jpg ][Polyglot Stegosploit][EOF Signature: */ -->]
+.................................................................................
+[Suspicious file]-[ ./cat-end-extra1.jpg ]..
 ```
 
 # Future work. Doing
