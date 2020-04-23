@@ -41,7 +41,7 @@ a) cat cat-linenum | bash
 b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
 ```
 ```
-# Example de polyglot in PDF
+# Example 3 Polyglot in PDF (linenum.sh)
 # Create b64.sh with your favourite payload
 base64 Linenum.sh -w 0 > b64.sh
 # Edit b64.sh
