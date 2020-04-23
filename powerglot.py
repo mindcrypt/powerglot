@@ -3,13 +3,22 @@ import numpy
 
 def applyRulesDetection(suspectFile):
         print(".",end="")
-        #print("\n[Malicious file] -",suspectFile)
+
+        # Detect stegosploit
+        # Es jpg
+
+        #fin FFD9
+        #print("\n[Suspicious file] -",suspectFile)
+
+        #Cierre de stegosploit */ -->
+
+
 
 def detect(path):
     for i in os.listdir(path):
         if os.path.isfile(os.path.join(path,i)):
             print(os.path.join(path,i))
-            #applyRulesDetection(os.path.join(path,i))
+            applyRulesDetection(os.path.join(path,i))
         if os.path.isdir(os.path.join(path,i)):
             detect(os.path.join(path,i))
 
@@ -18,6 +27,23 @@ def copyArray(src,dst,start,end,prefix_src,prefix_dst):
         #print("start:",start," end:",end," pSrc:",prefix_src," pDst:",prefix_dst," lenSrc:",len(src)," lenDst:",len(dst))
         #print("dst:",(prefix_dst+i)," src:",(prefix_src+i))
         dst[prefix_dst+i] = src[prefix_src+i]
+
+def encodeScriptPolyglotPDF(script,imgSrc,imgDst):
+    with open(script,'rb') as f3: linesScriptToHide = f3.read(10000000); # payload js
+    contador = 0
+    with open(imgSrc,'rb') as f1:
+        with open(imgDst,'wb') as f2:
+            while True:
+                b=f1.read(1)
+                if b: # process b if this is your intent
+                    if b == b'\n':
+                        n=f2.write(b)
+                        if contador == 0:
+                            n=f2.write(linesScriptToHide)
+                            contador = contador + 1
+                    else:
+                        n=f2.write(b)
+                else: break
 
 def encodeScriptPolyglot(script,imgSrc,imgDst):
 
@@ -70,9 +96,9 @@ def menu():
     print(" -- --=[ Author: Dr. Alfonso Munoz (@mindcrypt) & Abraham Pasamar]")
     print("====================================================================")
 
-    print("\n Usage: powerglot [-d | -o ] [payload] [image src] [image output]")
+    print("\n Usage: powerglot [-d | -o ] [payload] [file src] [file output]")
 
-    print("\n Powerglot encodes an auto-run powershell script using polyglots. A loader is not needed.")
+    print("\n Powerglot encodes scripts (powershell, shell, php, etc.) using polyglots. A loader is not needed.")
     print("\n optional arguments:\n")
     print("  -o  Offensive mode - Encode/Hide a script in a file using polyglots");
     print("")
@@ -82,6 +108,8 @@ def menu():
     print("  #powerglot -o script.ps1 cat.jpg catMalicious.jpg")
     print("  #powerglot -o script.sh cat.jpg catMalicious.jpg")
     print("  #powerglot -o script.php cat.jpg catMalicious.jpg")
+    print("  #powerglot -o b64.sh sample.pdf test.pdf")
+
 
     print("  #powerglot -d ./")
     print("")
@@ -94,7 +122,14 @@ def main(paramIn):
     else:
         if (sys.argv[1] == "-o") and len(sys.argv)==5:
                if sys.argv[1] == "-o":
+                  if sys.argv[3].endswith('pdf'):
+                   encodeScriptPolyglotPDF(sys.argv[2],sys.argv[3],sys.argv[4])
+                  else:
                    encodeScriptPolyglot(sys.argv[2],sys.argv[3],sys.argv[4])
+
+        #html-js
+        #pdf
+
 
         elif sys.argv[1] == "-d" and len(sys.argv)==3:
                print("--= [Detecting polyglots]...")
