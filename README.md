@@ -54,6 +54,15 @@ echo "code in b64.sh" | base64 -d | bash;
 # Execute payload
 # cat test.pdf | bash or chmod +x test.pdf; ./test.pdf
 ```
+```
+# Example 4 - Powershell in JPEG (polyglot)
+# python3 powerglot.py -o script.ps1 cat.jpeg cat-ps.jpeg
+# file cat-ps.jpeg
+# feh cat-ps.jpeg
+
+# Execute payload (example)
+# cat cat-ps.jpeg | pwsh
+```
 Some examples to detect polyglots in our filesystem
 ```
 #python3 powerglot.py -d ./
