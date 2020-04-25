@@ -51,9 +51,8 @@ b) chmod +x cat-linenum.jpeg; ./cat-linenum.jpeg
 
 #Victim
 # chmod +x cat-netcat.jpg | ./cat-netcat.jpg
-
-![alt text](https://github.com/mindcrypt/powerglot/blob/master/nc-polyglot.png)
 ```
+![Screenshot](nc-polyglot.png)
 ```
 # Example 4 - Polyglot in PDF (Ej-linenum.sh)
 # Create b64.sh with your favourite payload
