@@ -62,6 +62,31 @@ echo "code in b64.sh" | base64 -d | bash;
 
 # Execute payload (example)
 # cat cat-ps.jpeg | pwsh
+
+PS /home/alfonso/PowerGlot/POWERSHELL> get-process;<#hola <# mundo#>
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+      0     0,00       2,70       0,00     830 829 (sd-pam)
+      0     0,00       0,00       0,00      75   0 acpi_thermal_pm
+      0     0,00       4,80       0,00    1217 854 agent
+      0     0,00       1,70       0,00     748 748 agetty
+      0     0,00      40,77       1,01    1198 854 applet.py
+      0     0,00       6,29       0,00     938 938 at-spi-bus-launcher
+      0     0,00       6,61       5,64     953 938 at-spi2-registryd
+      0     0,00       0,00       0,00     131   0 ata_sff
+      0     0,00       1,77       0,00    8906 …78 atom
+      0     0,00     218,81     585,95    8908 …78 atom
+      0     0,00     236,18     176,24    8947 …78 atom
+      0     0,00     142,14       2,51    9009 …78 atom
+      0     0,00      81,54       3,32    8932 …78 atom --type=gpu-process --enable-features=SharedArrayBuffer -…
+      0     0,00      39,44       0,01    8910 …78 atom --type=zygote --no-sandbox
+      0     0,00       5,62       0,11    1370 …70 bash
+      0     0,00       5,36       0,66    5278 …78 bash
+      0     0,00       6,34       1,48    6778 …78 bash
+      0     0,00       0,00       0,00      68   0 blkcg_punt_bio
+      0     0,00      46,73       2,20    1199 854 blueman-applet
+      0     0,00      50,25       1,64    1301 854 blueman-tray
 ```
 Some examples to detect polyglots in our filesystem
 ```
